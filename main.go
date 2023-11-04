@@ -102,6 +102,10 @@ func goMap() {
 		fmt.Printf("%s: %d\n", sub, score)
 	}
 
+	for sub := range marks {
+		fmt.Println(sub)
+	}
+
 }
 
 func goStruct1() {
