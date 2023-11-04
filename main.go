@@ -28,6 +28,16 @@ func goFun() {
 		start++
 	}
 
+	a, b := goMultipleFun()
+	fmt.Printf("a: %d & b: %d\n", a, b)
+
+}
+
+func goMultipleFun() (int, int) {
+	a := 2
+	b := 3
+
+	return a, b
 }
 
 func goString() {
