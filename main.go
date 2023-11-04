@@ -4,14 +4,16 @@ import "fmt"
 
 func main() {
 
-	table(5)
+	goFun(5)
 	goArrays()
 	goSlice()
 	goMap()
+	goStruct1()
+	goStruct2()
 
 }
 
-func table(multiplier int) {
+func goFun(multiplier int) {
 
 	start := 1
 
@@ -65,6 +67,8 @@ func goMap() {
 		"History": 90,
 	}
 
+	marks["Math"] = 99
+
 	marks["Geography"] = 88
 
 	fmt.Println(marks)
@@ -77,4 +81,45 @@ func goMap() {
 		fmt.Printf("%s: %d\n", sub, score)
 	}
 
+}
+
+func goStruct1() {
+
+	type Person struct {
+		name string
+		age  int
+	}
+
+	Luffy := Person{"Luffy", 16}
+	Zoro := Person{"Zoro", 17}
+	Brook := Person{name: "Brook"}
+
+	fmt.Println(Luffy.name)
+	fmt.Println(Zoro)
+	fmt.Println(Brook)
+
+}
+
+func goStruct2() {
+
+	type Area func(int, int) int
+
+	type Volume struct {
+		length int
+		width  int
+		height int
+
+		area Area
+	}
+
+	cube := Volume{
+		length: 2,
+		width:  3,
+		height: 4,
+		area: func(length int, width int) int {
+			return length * width
+		},
+	}
+
+	fmt.Printf("Area = %d\n", cube.area(cube.length, cube.width))
 }
