@@ -10,6 +10,8 @@ var start int
 func main() {
 
 	goFun()
+	anonymous()
+	goClosure()
 	goString()
 	goArrays()
 	goSlice()
@@ -40,6 +42,23 @@ func goMultipleFun() (int, int) {
 	b := 3
 
 	return a, b
+}
+
+var anonymous = func() {
+	fmt.Println("This is an Anonymous function")
+}
+
+func goClosure() {
+	out := outer()
+	fmt.Println(out())
+}
+
+func outer() func() string {
+	greet := "Hello"
+
+	return func() string {
+		return greet + " " + "Go"
+	}
 }
 
 func goString() {
