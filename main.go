@@ -5,6 +5,8 @@ import (
 	"strings"
 )
 
+var start int
+
 func main() {
 
 	goFun()
@@ -19,7 +21,7 @@ func main() {
 
 func goFun() {
 
-	start := 1
+	start = 1
 	multiplier := 5
 
 	for start <= 10 {
