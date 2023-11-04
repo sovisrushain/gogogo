@@ -1,10 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
 
-	goFun(5)
+	goFun()
+	goString()
 	goArrays()
 	goSlice()
 	goMap()
@@ -13,14 +17,34 @@ func main() {
 
 }
 
-func goFun(multiplier int) {
+func goFun() {
 
 	start := 1
+	multiplier := 5
 
 	for start <= 10 {
 		product := multiplier * start
 		fmt.Printf("%d * %d = %d\n", multiplier, start, product)
 		start++
+	}
+
+}
+
+func goString() {
+
+	goL := "Golang"
+	golang := "Golang"
+
+	fmt.Println(strings.Compare(golang, goL))
+	fmt.Println(strings.Contains(golang, goL))
+	fmt.Println(strings.Replace(goL, "G", "g", 1))
+	fmt.Println(strings.ToUpper(golang))
+
+	greet := "Hello World"
+	greetArray := strings.Split(greet, " ")
+
+	for index, item := range greetArray {
+		fmt.Printf("%d. %s\n", index+1, item)
 	}
 
 }
@@ -68,13 +92,10 @@ func goMap() {
 	}
 
 	marks["Math"] = 99
-
 	marks["Geography"] = 88
-
 	fmt.Println(marks)
 
 	delete(marks, "History")
-
 	fmt.Println(marks)
 
 	for sub, score := range marks {
